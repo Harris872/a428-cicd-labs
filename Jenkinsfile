@@ -5,5 +5,8 @@ node {
             echo 'push untuk user dicoding'
             sh 'npm install'
         }
+        stage('Test') {
+            sh './jenkins/scripts/test.sh'
+        }
     }
 }
