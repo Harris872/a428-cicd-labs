@@ -4,6 +4,7 @@ node {
             sh 'npm install'
         }
         stage('Test') {
+            echo 'test'
             sh './jenkins/scripts/test.sh'
         }
     }
