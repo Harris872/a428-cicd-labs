@@ -1,9 +1,5 @@
 node {
     docker.image('node:16-buster-slim').inside('-p 3000:3000'){
-        triggers{
-            checkout scm
-            pollSCM('*/2 * * * *')
-        }
         stage('Build') {
             checkout scm
             echo 'push untuk user dicoding'
