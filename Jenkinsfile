@@ -14,7 +14,7 @@ node {
                 sh './jenkins/scripts/deliver.sh'
             }
             //sh './jenkins/scripts/deliver.sh'
-            sh './jenkins/scripts/kill.sh'
+           // sh './jenkins/scripts/kill.sh'
         }
         // stage('Deploy') {
         //     sh './jenkins/scripts/deliver.sh'
