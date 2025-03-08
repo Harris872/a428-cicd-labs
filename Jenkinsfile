@@ -1,8 +1,3 @@
-async function fetchData(){
-    console.log("Fetching data...");
-    await sleep(60000);
-    console.log("Data fetched delay.")
-}
 node {
     docker.image('node:16-buster-slim').inside('-p 3000:3000'){
         stage('Build') {
@@ -20,8 +15,8 @@ node {
         stage('Deploy') {
              sh './jenkins/scripts/deliver.sh'
              //input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)' 
-             //sh './jenkins/scripts/kill.sh'
-             fetchData();
+             sh './jenkins/scripts/sleep.sh'
+             sh './jenkins/scripts/kill.sh'
         }
     }
 }
