@@ -10,7 +10,6 @@ node {
         }
         stage('Manual Approval') {
             input message: 'Lanjutkan ke tahap Deploy? (Klik "Proceed" untuk lanjut deploy)' 
-            sh stage ('Deploy')
         }
 
         stage('Deploy') {
