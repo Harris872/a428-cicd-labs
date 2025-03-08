@@ -16,7 +16,8 @@ node {
              sh './jenkins/scripts/deliver.sh'
              //input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)' 
              //sh './jenkins/scripts/kill.sh'
-             await sleep(60)
+             const sleep = ms = new Promise(r => setTimeout(r, ms));
+             await sleep(600000)
         }
     }
 }
