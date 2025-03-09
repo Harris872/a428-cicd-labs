@@ -13,11 +13,13 @@ node {
         }
 
         stage('Deploy') {
-             sh './jenkins/scripts/deliver.sh'
-             sh 'sleep 60'
-             //input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)' 
-             //sh './jenkins/scripts/sleep.sh'
-             sh './jenkins/scripts/kill.sh'
+           def dockerCmd = 'docker run  -p 3000:3000 -d Harris/react-app:latest'
+           sshagent(['ec2-server-key']) {
+           sh "ssh -o StrictHostKeyChecking=no ec2-user@13.250.25.130 ${dockerCmd}"
+           } 
+            //  sh './jenkins/scripts/deliver.sh'
+            //  sh 'sleep 60'
+            //  sh './jenkins/scripts/kill.sh'
         }
     }
 }
